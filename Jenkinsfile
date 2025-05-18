@@ -4,15 +4,15 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout code from your GitHub repository
-                git url: 'https://github.com/muhammadbilalnasir/Story-generator.git', branch: 'main'
+              
+                git url: 'https://github.com/sadiaraja25/notes-app.git', branch: 'main'
             }
         }
 
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Build docker images using docker-compose
+                    
                     sh 'docker-compose -p storygen build'
                 }
             }
@@ -21,7 +21,7 @@ pipeline {
         stage('Run Containers') {
             steps {
                 script {
-                    // Run containers in detached mode
+                    
                     sh 'docker-compose -p storygen -f docker-compose.yml up -d'
                 }
             }
